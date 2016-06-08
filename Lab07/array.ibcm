@@ -1,0 +1,36 @@
+C00F   00         jmp     start     
+0000   01   a     dw      0         int a[]
+0002   02   a0    dw      2         a[0]=2
+0008   03   a1    dw      8         a[1]=8
+0005   04   a2    dw      5         a[2]=5
+0007   05   a3    dw      7         a[3]=7
+0000   06   max   dw      0         output
+0000   07   cur   dw      0         the current element in the array
+0006   08   size  dw      6         size of the array plus 2
+0002   09   i     dw      2         loop variant start from 2
+0001   0A   one   dw      1
+3000   0B   ldit  dw      3000
+0000   0C   s1    dw      0         leave space for changes
+0000   0D   s2    dw      0         leave space for changes
+0000   0E   s3    dw      0         leave space for changes
+3008   0F   start load    size
+6009   10         sub     i
+D021   11         jmpe    end       jump to the end if the array has no more element
+300B   12         load    ldit      form instruction to load a[i]
+5001   13         add     a
+5009   14         add     i
+4016   15         store   doit
+0000   16   doit  dw      0         load a[i]
+4007   17         store   cur       store a[i] into current
+6006   18         sub     max       subtract max from current
+D01D   19         jmpe    loop      if a[i] = max go to loop
+E01D   1A         jmpl    loop      if a[i] < max go to loop
+3007   1B         load    cur       load current
+4006   1C         store   max       store current in max
+3009   1D   loop  load    i
+500A   1E         add     1
+4009   1F         store   i
+C00F   20         jmp     start
+3006   21   end   load    max
+1800   22         printH            print max
+0000   23         halt

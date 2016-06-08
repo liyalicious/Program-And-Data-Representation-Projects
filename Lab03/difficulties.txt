@@ -1,0 +1,10 @@
+/*
+Liya Xu
+lx2hy
+difficulties.txt
+2014.02.06
+*/
+
+One difficulty that I encountered was to figure out how the push method would work. At the beginning, I have no idea how to add a stacknode into an empty stack. What I did to solve this problem is to create a topnode t, then i make it to point to the pushelement. 
+
+The other difficulty was the pop method. I was not sure how to delete the top element. Then i realized that I just needed to make the topnode point to the element under the top. I don't really need to delete the top one. 

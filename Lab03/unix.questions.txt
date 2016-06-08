@@ -1,0 +1,1 @@
+if you create a list in the unix, where does it store it?
